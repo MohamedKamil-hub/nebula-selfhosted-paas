@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # --- PROXY INVERSO & SSL ---
+  nginx-proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nebula-proxy
+    restart: unless-stopped
+    ports:
+      - '80:80'   # HTTP
+      - '81:81'   # Panel de Administración
+      - '443:443' # HTTPS
+    volumes:
+      - ./data/npm:/data
+      - ./data/letsencrypt:/etc/letsencrypt
+    environment:
+      - DISABLE_IPV6=true
+    networks:
+      - nebula-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # --- MONITORIZACIÓN EN TIEMPO REAL ---
+  netdata:
+    image: netdata/netdata:latest
+    container_name: nebula-monitor
+    restart: unless-stopped
+    ports:
+      - '19999:19999'
+    volumes:
+      - ./data/netdata/config:/etc/netdata
+      - ./data/netdata/lib:/var/lib/netdata
+      - ./data/netdata/cache:/var/cache/netdata
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      - NETDATA_CLAIM_URL=https://app.netdata.cloud
+      - NETDATA_HOSTNAME=nebula-server
+    networks:
+      - nebula-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  nebula-network:
+    driver: bridge

@@ -1,0 +1,25 @@
+[DEFAULT]
+# Ban time (10 minutes)
+bantime = 600
+
+# Allowed attempts before banning
+maxretry = 3
+
+# Time window to count attempts (10 minutes)
+findtime = 600
+
+# IPs that should NOT be banned (localhost)
+ignoreip = 127.0.0.1/8 ::1
+
+
+[sshd]
+# Enable protection for SSH
+enabled = true
+
+# Specify our custom SSH port
+port = 2222
+
+filter = sshd
+logpath = %(sshd_log)s
+backend = %(sshd_backend)s
+

@@ -20,3 +20,4 @@
 1. Clone the repo: `git clone https://github.com/MohamedKamil-hub/nebula.git`
 2. Run hardening script: `sudo ./scripts/02-hardening.sh`
 3. Start services: `docker compose up -d`
+hola

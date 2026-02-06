@@ -1,0 +1,83 @@
+.
+├── apps
+│   ├── python-app
+│   │   ├── app.py
+│   │   ├── docker-compose.yml
+│   │   ├── Dockerfile
+│   │   └── requirements.txt
+│   ├── static-web
+│   │   └── html
+│   └── wordpress-app
+│       ├── docker-compose.yaml
+│       ├── mysql
+│       └── wp-content
+├── certs
+│   ├── nebula.crt
+│   └── nebula.key
+├── config
+│   ├── fail2ban
+│   │   ├── fail2ban-nginx-jail.conf
+│   │   └── jail.local
+│   ├── netdata
+│   │   ├── cpu_alert.conf
+│   │   └── health.d
+│   ├── nginx
+│   │   └── nginx.conf
+│   └── ssh
+│       └── sshd_config
+├── data
+│   ├── letsencrypt
+│   │   ├── accounts
+│   │   └── renewal-hooks
+│   └── npm
+│       ├── access
+│       ├── custom_ssl
+│       ├── database.sqlite
+│       ├── keys.json
+│       ├── letsencrypt-acme-challenge
+│       ├── logs
+│       ├── nebula.crt
+│       ├── nebula.key
+│       ├── nginx
+│       └── ssl
+├── docker-compose.prod.yml
+├── docker-compose.yml
+├── docs
+│   ├── diagrams
+│   ├── hosts_example.txt
+│   ├── proyecto_intermodular.pdf
+│   ├── screenshots
+│   │   ├── comunicacion_interna.txt
+│   │   ├── estado_contenedores.txt
+│   │   ├── red_contenedores.txt
+│   │   └── wordpress_instalacion.log
+│   ├── technical
+│   └── visual
+│       ├──  diagrama_grantt_completo.png
+│       ├── Diagrama Arquitectura_del_Sistema.puml
+│       ├── Diagrama_de_Casos_de_Uso.puml
+│       └── Diagrama_de_Flujo_de_Actividad.puml
+├── examples
+│   ├── fastapi-example
+│   ├── portfolio-template
+│   └── wordpress-deploy
+├── infrastructure
+│   └── docker
+│       ├── apps
+│       └── monitoring
+├── LICENSE
+├── Makefile
+├── README.md
+├── scripts
+│   ├── backup-nebula.sh
+│   ├── installation-docker-nebula.sh
+│   ├── setup-fail2ban-nebula.sh
+│   ├── setup-firewall-nebula.sh
+│   └── setup-nebula-discarded.sh
+├── Taskfile.yaml
+└── tests
+    ├── integration
+    ├── load
+    └── security
+
+44 directories, 37 files

@@ -10,6 +10,8 @@ services:
       - '80:80'   # HTTP
       - '81:81'   # Panel de Administración
       - '443:443' # HTTPS
+      - '10443:443'
+
     volumes:
       - ./data/npm:/data
       - ./data/letsencrypt:/etc/letsencrypt
@@ -28,22 +30,27 @@ services:
     image: netdata/netdata:latest
     container_name: nebula-monitor
     restart: unless-stopped
+    privileged: true  # He añadido esta línea para que no te dé el error de conexión que tenías
     ports:
       - '19999:19999'
     volumes:
-      - ./data/netdata/config:/etc/netdata
-      - ./data/netdata/lib:/var/lib/netdata
-      - ./data/netdata/cache:/var/cache/netdata
+      - netdataconfig:/etc/netdata
+      - netdatalib:/var/lib/netdata
+      - netdatacache:/var/cache/netdata
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /etc/localtime:/etc/localtime:ro
     cap_add:
       - SYS_PTRACE
+      - SYS_ADMIN
     security_opt:
       - apparmor:unconfined
-    environment:
-      - NETDATA_CLAIM_URL=https://app.netdata.cloud
-      - NETDATA_HOSTNAME=nebula-server
+    # environment:
+    #   - NETDATA_CLAIM_URL=https://app.netdata.cloud
+    #   - NETDATA_HOSTNAME=nebula-server
     networks:
       - nebula-network
     logging:
@@ -52,6 +59,21 @@ services:
         max-size: "10m"
         max-file: "3"
 
+  # --- APLICACIÓN WEB ESTÁTICA ---
+  static-web:
+    image: nginx:alpine
+    container_name: nebula-static
+    restart: unless-stopped
+    volumes:
+      - ./apps/static-web/html:/usr/share/nginx/html
+    networks:
+      - nebula-network
+
 networks:
   nebula-network:
-    driver: bridge
+    external: true
+
+volumes:
+  netdataconfig:
+  netdatalib:
+  netdatacache:

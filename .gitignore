@@ -17,3 +17,12 @@ data/
 .vscode/
 __pycache__/
 *.swp
+
+
+
+# Ignorar bases de datos persistentes de las apps
+apps/wordpress-app/mysql/
+apps/wordpress-app/wp-content/uploads/
+
+# Ignorar archivos de configuración de WP con contraseñas
+apps/wordpress-app/wp-config.php

@@ -1,0 +1,6 @@
+Python App:
+<title>Python App - Nebula PaaS</title>
+Static Web:
+<title>NEBULA - Plataforma Autogestionada</title>
+WordPress:
+HTTP/1.1 302 Found

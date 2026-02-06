@@ -1,0 +1,6 @@
+# NEBULA PROJECT – Local name resolution configuration
+# Copy this line into C:\Windows\System32\drivers\etc\hosts (Windows)
+# or into /etc/hosts (Linux / macOS)
+
+127.0.0.1  monitor.nebula.test
+127.0.0.1    app.nebula.test

@@ -1,0 +1,71 @@
+version: '3'
+
+vars:
+  BACKUP_SCRIPT: ./scripts/backup-nebula.sh
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task --list
+
+  # --- Infrastructure Operations ---
+  up:
+    desc: Start the entire NEBULA stack
+    cmds:
+      - echo "🚀 Starting NEBULA..."
+      - docker compose up -d
+    silent: true
+
+  down:
+    desc: Stop and remove containers
+    cmds:
+      - echo "🛑 Stopping services..."
+      - docker compose down
+    silent: true
+
+  restart:
+    desc: Restart all services
+    cmds:
+      - docker compose restart
+
+  logs:
+    desc: View logs stream
+    cmds:
+      - docker compose logs -f
+
+  status:
+    desc: Show running containers
+    cmds:
+      - docker compose ps
+
+  monitor:
+    desc: Real-time resource monitoring (CPU/RAM)
+    cmds:
+      - docker stats
+
+  # --- Security & Maintenance ---
+  backup:
+    desc: Execute the backup script
+    cmds:
+      - echo "📦 Running Backup Procedure..."
+      - bash {{.BACKUP_SCRIPT}}
+
+  security-check:
+    desc: Audit active security layers (Firewall & IPS)
+    cmds:
+      - echo "🔒 Checking Firewall Rules..."
+      - sudo ufw status
+      - echo "🛡️ Checking Fail2Ban Status..."
+      - sudo fail2ban-client status sshd
+
+  update:
+    desc: Update code from Git and redeploy containers
+    cmds:
+      - git pull origin main
+      - docker compose up -d --build --remove-orphans
+
+  clean:
+    desc: Remove unused Docker data
+    cmds:
+      - docker system prune -f

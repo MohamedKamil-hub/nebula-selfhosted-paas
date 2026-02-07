@@ -5,7 +5,6 @@
 echo "=== NEBULA FIREWALL CONFIGURATION ==="
 
 # 1. Reset and policies
-# Resets existing rules to avoid conflicts
 sudo ufw --force reset
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
@@ -19,16 +18,26 @@ sudo ufw limit 2222/tcp comment 'SSH protected (6 tries/30s)'
 # Web & Service ports
 sudo ufw allow 80/tcp comment 'HTTP'
 sudo ufw allow 443/tcp comment 'HTTPS'
-sudo ufw allow 19999/tcp comment 'Netdata'
-sudo ufw allow 81/tcp comment 'Nginx PM'
+sudo ufw allow 10443/tcp comment 'HTTPS alternative port for Windows/WSL2 conflicts'
+sudo ufw allow 19999/tcp comment 'Netdata monitoring'
+sudo ufw allow 81/tcp comment 'Nginx Proxy Manager admin'
 
 # 3. Activate firewall
 sudo ufw --force enable
 
 echo "------------------------------------------------"
 echo "✅ Firewall configured and enabled."
-echo "⚠️  CAUTION: If you fail 6 times in 30s via SSH, your IP will be limited."
-echo "💡 For development, you can use 'sudo ufw allow 2222/tcp' to disable limits."
+echo ""
+echo "PORTS OPENED:"
+echo "  • 2222/tcp  - SSH (rate limited)"
+echo "  • 80/tcp    - HTTP"
+echo "  • 443/tcp   - HTTPS (standard)"
+echo "  • 10443/tcp - HTTPS alternative (Windows/WSL2 compatibility)"
+echo "  • 19999/tcp - Netdata monitoring"
+echo "  • 81/tcp    - NPM admin panel"
+echo ""
+echo "⚠️  CAUTION: SSH has rate limiting (6 tries/30s)"
+echo "💡 For development: 'sudo ufw allow 2222/tcp' removes limit"
 echo "------------------------------------------------"
 
-sudo ufw status numbered
+sudo ufw status verbose

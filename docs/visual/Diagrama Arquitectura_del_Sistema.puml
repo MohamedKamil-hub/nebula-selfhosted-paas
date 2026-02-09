@@ -1,0 +1,114 @@
+@startuml
+' === CONFIGURACIÓN DE ALTO CONTRASTE Y VERTICALIDAD ===
+skinparam shadowing false
+skinparam roundcorner 10
+skinparam dpi 150
+skinparam defaultFontName "Segoe UI", "Verdana"
+skinparam TitleFontSize 22
+skinparam TitleFontStyle bold
+
+' Grosor de flechas general aumentado a 3 para máxima visibilidad
+skinparam arrow {
+    Thickness 5
+    Color #444444
+}
+
+' Forzar dirección vertical estricta
+top to bottom direction
+
+' Estilos de componentes
+skinparam rectangle {
+    BackgroundColor<<Internet>> #FFFFFF
+    BorderColor<<Internet>> #3498DB
+    BackgroundColor<<Infra>> #F8F9FA
+    BorderColor<<Infra>> #2C3E50
+}
+
+skinparam package {
+    BackgroundColor #FFFFFF
+    BorderColor #BDC3C7
+    FontStyle bold
+}
+
+' Colores específicos para componentes clave
+skinparam component {
+    BackgroundColor<<App>> #D6EAF8
+    BackgroundColor<<DB>> #FAD7A0
+    BackgroundColor<<Proxy>> #DBB6EE
+    BackgroundColor<<Engine>> #2496ED
+    FontColor<<Engine>> White
+    BackgroundColor<<Monitor>> #D5F5E3
+}
+
+title "NEBULA: Arquitectura Técnica de Precisión\n"
+
+' --- CAPA DE ACCESO ---
+rectangle "🌐 FLUJO DE ENTRADA" <<Internet>> {
+    [<b>Usuario / Cliente</b>\n(Navegador Web)] as User
+}
+
+' --- CAPA DE SEGURIDAD OS ---
+rectangle "🛡️ HOST HARDENING (Ubuntu 24.04)" <<Infra>> {
+    [<b>Firewall UFW / Fail2Ban</b>] as Security #E74C3C
+}
+
+' --- CAPA DE ORQUESTACIÓN (DOCKER ENGINE) ---
+component "🐳 <b>DOCKER ENGINE / DAEMON</b>" <<Engine>> as DockerEngine
+
+' --- CAPA DE SERVICIOS (CONTENEDORES) ---
+rectangle "📦 ENTORNO DE SERVICIOS" <<Infra>> {
+    
+    package "Ingreso y Tráfico" {
+        [<b>Nginx Proxy Manager</b>\n(SSL & Reverse Proxy)] as NPM <<Proxy>>
+    }
+
+    package "Lógica de Negocio" {
+        [<b>App Web 1</b>\n(Frontend/Backend)] as App1 <<App>>
+        [<b>App Web 2</b>\n(Microservicio)] as App2 <<App>>
+    }
+
+    package "Capa de Persistencia" {
+        [<b>Base de Datos</b>\n(PostgreSQL / Redis)] as DB <<DB>>
+    }
+}
+
+' --- CAPA DE OBSERVABILIDAD ---
+package "📊 MONITORIZACIÓN INTEGRAL" {
+    [<b>Netdata Agent</b>] as Netdata <<Monitor>>
+}
+
+' === RELACIONES TÉCNICAS (CON GROSOR REFORZADO) ===
+
+' 1. Flujo de Tráfico (Flechas Externas e Internas Bold)
+User -[#3498DB,bold]down-> Security : "HTTPS (443)"
+Security -[#3498DB,bold]down-> NPM : "Filtro Pass"
+NPM -[#8E44AD,bold]down-> App1
+NPM -[#8E44AD,bold]down-> App2
+App1 -[#D35400,bold]down-> DB : "Persistencia"
+App2 -[#D35400,bold]down-> DB
+
+' 2. Dependencia de Orquestación
+DockerEngine -[#2496ED,dashed]up-> NPM : "<<manage>>"
+DockerEngine -[#2496ED,dashed]up-> App1 : "<<manage>>"
+DockerEngine -[#2496ED,dashed]up-> DB : "<<manage>>"
+
+' 3. Monitorización 360°
+Netdata -[#27AE60,dotted]up-> Security : "Logs de Red"
+Netdata -[#27AE60,dotted]up-> DockerEngine : "Estado Daemon"
+Netdata -[#27AE60,dotted]up-> DB : "Métricas DB"
+Netdata -[#27AE60,dotted]up-> App1 : "Stats Contenedor"
+
+' Notas de Arquitectura
+note left of DockerEngine
+  <b>Docker Engine:</b>
+  Aísla recursos y gestiona el
+  ciclo de vida de cada servicio.
+end note
+
+note right of DB
+  <b>Persistencia:</b>
+  Separada de la lógica de
+  apps para escalabilidad.
+end note
+
+@enduml

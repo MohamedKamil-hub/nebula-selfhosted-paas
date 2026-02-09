@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEBULA - Plataforma Autogestionada</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>NEBULA</h1>
+        <p>Plataforma autogestionada para despliegue de aplicaciones</p>
+    </header>
+
+    <main>
+        <section class="info">
+            <h2>Características</h2>
+            <ul>
+                <li>Seguridad con SSL/TLS automático</li>
+                <li>Monitorización en tiempo real</li>
+                <li>Contenedores Docker</li>
+                <li>Proxy inverso Nginx</li>
+            </ul>
+        </section>
+
+        <section class="stats">
+            <h2>Estado del sistema</h2>
+            <div class="stat-box">
+                <p><strong>CPU:</strong> <span id="cpu">--</span>%</p>
+                <p><strong>RAM:</strong> <span id="ram">--</span> MB</p>
+                <p><strong>Contenedores:</strong> <span id="containers">4</span></p>
+            </div>
+            <div class="stat-box">
+                <p><strong>Dominio:</strong> app.nebula.test</p>
+                <p><strong>SSL:</strong> <span id="ssl">Activo</span></p>
+                <p><strong>Hora:</strong> <span id="time">--</span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>NEBULA © 2026 | Mohamed Kamil El Kouarti | 2º SMR Prometeo</p>
+        <p><a href="https://github.com/MohamedKamil-hub/nebula-selfhosted-paas">GitHub</a></p>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+# Variables de entorno
+.env
+*.env.local
+
+# Claves SSH y certificados
+*.pem
+*.key
+*.crt
+
+# Logs y datos de contenedores
+*.log
+data/
+**/node_modules/
+
+# Editor y sistema
+.DS_Store
+.vscode/
+__pycache__/
+*.swp
+
+
+
+# Ignorar bases de datos persistentes de las apps
+apps/wordpress-app/mysql/
+apps/wordpress-app/wp-content/uploads/
+
+# Ignorar archivos de configuración de WP con contraseñas
+apps/wordpress-app/wp-config.php
+
+
+# WordPress core innecesario
+apps/wordpress-app/wp-content/plugins/akismet/
+apps/wordpress-app/wp-content/plugins/hello.php
+apps/wordpress-app/wp-content/themes/twentytwenty*

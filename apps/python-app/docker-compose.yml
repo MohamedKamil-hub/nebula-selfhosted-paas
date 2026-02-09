@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  python-app:
+    build: .
+    container_name: python-app
+    restart: unless-stopped
+    networks:
+      - nebula-network
+
+networks:
+  nebula-network:
+    external: true

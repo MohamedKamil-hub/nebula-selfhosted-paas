@@ -1,0 +1,11 @@
+# NEBULA PROJECT – Local name resolution configuration
+# Copy this line into C:\Windows\System32\drivers\etc\hosts (Windows)
+# or into /etc/hosts (Linux / macOS)
+
+127.0.0.1    monitor.nebula.test
+127.0.0.1    localhost
+127.0.1.1    nebula-m-kamil
+127.0.0.1    app.nebula.test
+127.0.0.1    static.nebula.test
+127.0.0.1    wordpress.nebula.test
+127.0.0.1    python.nebula.test

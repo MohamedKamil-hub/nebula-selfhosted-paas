@@ -11,13 +11,13 @@ jobs:
       
       - name: Validate main docker-compose
         run: |
-          echo "🔍 Validando configuración principal..."
+          echo "🔍 Validating main configuration "
           docker compose config
-          echo "✅ docker-compose.yml válido"
+          echo "✅ docker-compose.yml válid"
       
       - name: Check apps structure
         run: |
-          echo "📁 Estructura de apps:"
+          echo " apps structure:"
           find apps/ -type f -name "*.yml" -o -name "*.yaml" -o -name "Dockerfile" | head -10
   
   cd:
@@ -30,13 +30,13 @@ jobs:
       
       - name: Deployment Ready
         run: |
-          echo "🚀 DEPLOYMENT READY"
+          echo " DEPLOYMENT READY"
           echo "---------------"
-          echo "Build completado exitosamente."
+          echo "Build completed successfully."
           echo "Para desplegar en producción:"
           echo "1. ssh usuario@servidor"
           echo "2. cd ~/proyecto"
           echo "3. git pull"
           echo "4. docker compose up -d"
           echo ""
-          echo "✅ Este proyecto está listo para producción."
+          echo " this project is ready for production."

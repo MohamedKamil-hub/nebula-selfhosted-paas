@@ -1,4 +1,4 @@
-# 🚀 Nebula Self-Hosted PaaS
+# Nebula Self-Hosted PaaS  🌌
 
 **Self-hosted platform for deploying web applications on modest hardware**
 

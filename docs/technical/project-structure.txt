@@ -1,0 +1,687 @@
+../../
+├── apps
+│   ├── python-app
+│   │   ├── app.py
+│   │   ├── docker-compose.yml
+│   │   ├── Dockerfile
+│   │   └── requirements.txt
+│   ├── static-web
+│   │   └── html
+│   │       ├── css
+│   │       │   └── style.css
+│   │       ├── index.html
+│   │       └── js
+│   │           └── script.js
+│   └── wordpress-app
+│       ├── diagnose.sh
+│       ├── diagnosis-now.sh
+│       ├── docker-compose.yaml
+│       ├── extreme-check.sh
+│       ├── final-check.sh
+│       ├── mysql
+│       │   ├── aria_log.00000001
+│       │   ├── aria_log_control
+│       │   ├── ddl_recovery-backup.log
+│       │   ├── ddl_recovery.log
+│       │   ├── ib_buffer_pool
+│       │   ├── ibdata1
+│       │   ├── ib_logfile0
+│       │   ├── ibtmp1
+│       │   ├── multi-master.info
+│       │   ├── mysql  [error opening dir]
+│       │   ├── mysql_upgrade_info
+│       │   ├── performance_schema  [error opening dir]
+│       │   ├── sys  [error opening dir]
+│       │   └── wordpress  [error opening dir]
+│       ├── post-fix-check.sh
+│       ├── wp-config.php.example
+│       └── wp-content
+│           ├── index.php
+│           ├── mu-plugins
+│           │   ├── disable-redirects.php
+│           │   ├── kill-redirects.php
+│           │   └── no-redirect.php
+│           ├── plugins
+│           │   ├── akismet
+│           │   │   ├── akismet.php
+│           │   │   ├── changelog.txt
+│           │   │   ├── class.akismet-admin.php
+│           │   │   ├── class.akismet-cli.php
+│           │   │   ├── class-akismet-compatible-plugins.php
+│           │   │   ├── class.akismet.php
+│           │   │   ├── class.akismet-rest-api.php
+│           │   │   ├── class.akismet-widget.php
+│           │   │   ├── _inc
+│           │   │   │   ├── akismet-admin.css
+│           │   │   │   ├── akismet-admin.js
+│           │   │   │   ├── akismet.css
+│           │   │   │   ├── akismet-frontend.js
+│           │   │   │   ├── akismet.js
+│           │   │   │   ├── fonts
+│           │   │   │   │   └── inter.css
+│           │   │   │   ├── img
+│           │   │   │   │   ├── akismet-activation-banner-elements.png
+│           │   │   │   │   ├── akismet-refresh-logo@2x.png
+│           │   │   │   │   ├── akismet-refresh-logo.svg
+│           │   │   │   │   ├── arrow-left.svg
+│           │   │   │   │   └── logo-a-2x.png
+│           │   │   │   └── rtl
+│           │   │   │       ├── akismet-admin-rtl.css
+│           │   │   │       └── akismet-rtl.css
+│           │   │   ├── index.php
+│           │   │   ├── LICENSE.txt
+│           │   │   ├── readme.txt
+│           │   │   ├── views
+│           │   │   │   ├── activate.php
+│           │   │   │   ├── compatible-plugins.php
+│           │   │   │   ├── config.php
+│           │   │   │   ├── connect-jp.php
+│           │   │   │   ├── enter.php
+│           │   │   │   ├── get.php
+│           │   │   │   ├── logo.php
+│           │   │   │   ├── notice.php
+│           │   │   │   ├── predefined.php
+│           │   │   │   ├── setup-jetpack.php
+│           │   │   │   ├── setup.php
+│           │   │   │   ├── start.php
+│           │   │   │   └── stats.php
+│           │   │   └── wrapper.php
+│           │   ├── hello.php
+│           │   └── index.php
+│           ├── themes
+│           │   ├── index.php
+│           │   ├── twentytwentyfive
+│           │   │   ├── assets
+│           │   │   │   ├── css
+│           │   │   │   │   └── editor-style.css
+│           │   │   │   ├── fonts
+│           │   │   │   │   ├── beiruti
+│           │   │   │   │   │   └── Beiruti-VariableFont_wght.woff2
+│           │   │   │   │   ├── fira-code
+│           │   │   │   │   │   └── FiraCode-VariableFont_wght.woff2
+│           │   │   │   │   ├── fira-sans
+│           │   │   │   │   │   ├── FiraSans-BlackItalic.woff2
+│           │   │   │   │   │   ├── FiraSans-Black.woff2
+│           │   │   │   │   │   ├── FiraSans-BoldItalic.woff2
+│           │   │   │   │   │   ├── FiraSans-Bold.woff2
+│           │   │   │   │   │   ├── FiraSans-ExtraBoldItalic.woff2
+│           │   │   │   │   │   ├── FiraSans-ExtraBold.woff2
+│           │   │   │   │   │   ├── FiraSans-ExtraLightItalic.woff2
+│           │   │   │   │   │   ├── FiraSans-ExtraLight.woff2
+│           │   │   │   │   │   ├── FiraSans-Italic.woff2
+│           │   │   │   │   │   ├── FiraSans-LightItalic.woff2
+│           │   │   │   │   │   ├── FiraSans-Light.woff2
+│           │   │   │   │   │   ├── FiraSans-MediumItalic.woff2
+│           │   │   │   │   │   ├── FiraSans-Medium.woff2
+│           │   │   │   │   │   ├── FiraSans-Regular.woff2
+│           │   │   │   │   │   ├── FiraSans-SemiBoldItalic.woff2
+│           │   │   │   │   │   ├── FiraSans-SemiBold.woff2
+│           │   │   │   │   │   ├── FiraSans-ThinItalic.woff2
+│           │   │   │   │   │   └── FiraSans-Thin.woff2
+│           │   │   │   │   ├── literata
+│           │   │   │   │   │   ├── Literata72pt-BlackItalic.woff2
+│           │   │   │   │   │   ├── Literata72pt-Black.woff2
+│           │   │   │   │   │   ├── Literata72pt-BoldItalic.woff2
+│           │   │   │   │   │   ├── Literata72pt-Bold.woff2
+│           │   │   │   │   │   ├── Literata72pt-ExtraBoldItalic.woff2
+│           │   │   │   │   │   ├── Literata72pt-ExtraBold.woff2
+│           │   │   │   │   │   ├── Literata72pt-ExtraLightItalic.woff2
+│           │   │   │   │   │   ├── Literata72pt-ExtraLight.woff2
+│           │   │   │   │   │   ├── Literata72pt-LightItalic.woff2
+│           │   │   │   │   │   ├── Literata72pt-Light.woff2
+│           │   │   │   │   │   ├── Literata72pt-MediumItalic.woff2
+│           │   │   │   │   │   ├── Literata72pt-Medium.woff2
+│           │   │   │   │   │   ├── Literata72pt-RegularItalic.woff2
+│           │   │   │   │   │   ├── Literata72pt-Regular.woff2
+│           │   │   │   │   │   ├── Literata72pt-SemiBoldItalic.woff2
+│           │   │   │   │   │   └── Literata72pt-SemiBold.woff2
+│           │   │   │   │   ├── manrope
+│           │   │   │   │   │   └── Manrope-VariableFont_wght.woff2
+│           │   │   │   │   ├── platypi
+│           │   │   │   │   │   ├── Platypi-Italic-VariableFont_wght.woff2
+│           │   │   │   │   │   └── Platypi-VariableFont_wght.woff2
+│           │   │   │   │   ├── roboto-slab
+│           │   │   │   │   │   └── RobotoSlab-VariableFont_wght.woff2
+│           │   │   │   │   ├── vollkorn
+│           │   │   │   │   │   ├── Vollkorn-Italic-VariableFont_wght.woff2
+│           │   │   │   │   │   └── Vollkorn-VariableFont_wght.woff2
+│           │   │   │   │   └── ysabeau-office
+│           │   │   │   │       ├── YsabeauOffice-Italic-VariableFont_wght.woff2
+│           │   │   │   │       └── YsabeauOffice-VariableFont_wght.woff2
+│           │   │   │   └── images
+│           │   │   │       ├── 404-image.webp
+│           │   │   │       ├── agenda-img-4.webp
+│           │   │   │       ├── akaka-falls-state-park-flora.webp
+│           │   │   │       ├── book-image-landing.webp
+│           │   │   │       ├── book-image.webp
+│           │   │   │       ├── botany-flowers-closeup.webp
+│           │   │   │       ├── botany-flowers.webp
+│           │   │   │       ├── campanula-alliariifolia-flower.webp
+│           │   │   │       ├── category-anthuriums.webp
+│           │   │   │       ├── category-cactus.webp
+│           │   │   │       ├── category-sunflowers.webp
+│           │   │   │       ├── coming-soon-bg-image.webp
+│           │   │   │       ├── coral-square.webp
+│           │   │   │       ├── dallas-creek-square.webp
+│           │   │   │       ├── delphinium-flowers.webp
+│           │   │   │       ├── flower-meadow-square.webp
+│           │   │   │       ├── grid-flower-1.webp
+│           │   │   │       ├── grid-flower-2.webp
+│           │   │   │       ├── hero-podcast.webp
+│           │   │   │       ├── link-in-bio-background.webp
+│           │   │   │       ├── link-in-bio-image.webp
+│           │   │   │       ├── location.webp
+│           │   │   │       ├── malibu-plantlife.webp
+│           │   │   │       ├── man-in-hat.webp
+│           │   │   │       ├── marshland-birds-square.webp
+│           │   │   │       ├── northern-buttercups-flowers.webp
+│           │   │   │       ├── nurse.webp
+│           │   │   │       ├── parthenon-square.webp
+│           │   │   │       ├── poster-image-background.webp
+│           │   │   │       ├── red-hibiscus-closeup.webp
+│           │   │   │       ├── ruins-image.webp
+│           │   │   │       ├── services-subscriber-photo.webp
+│           │   │   │       ├── star-thristle-flower.webp
+│           │   │   │       ├── typewriter.webp
+│           │   │   │       ├── vash-gon-square.webp
+│           │   │   │       └── woman-splashing-water.webp
+│           │   │   ├── contributing.txt
+│           │   │   ├── functions.php
+│           │   │   ├── package.json
+│           │   │   ├── package-lock.json
+│           │   │   ├── parts
+│           │   │   │   ├── footer-columns.html
+│           │   │   │   ├── footer.html
+│           │   │   │   ├── footer-newsletter.html
+│           │   │   │   ├── header.html
+│           │   │   │   ├── header-large-title.html
+│           │   │   │   ├── sidebar.html
+│           │   │   │   └── vertical-header.html
+│           │   │   ├── patterns
+│           │   │   │   ├── banner-about-book.php
+│           │   │   │   ├── banner-cover-big-heading.php
+│           │   │   │   ├── banner-intro-image.php
+│           │   │   │   ├── banner-intro.php
+│           │   │   │   ├── banner-poster.php
+│           │   │   │   ├── banner-with-description-and-images-grid.php
+│           │   │   │   ├── binding-format.php
+│           │   │   │   ├── comments.php
+│           │   │   │   ├── contact-centered-social-link.php
+│           │   │   │   ├── contact-info-locations.php
+│           │   │   │   ├── contact-location-and-link.php
+│           │   │   │   ├── cta-book-links.php
+│           │   │   │   ├── cta-book-locations.php
+│           │   │   │   ├── cta-centered-heading.php
+│           │   │   │   ├── cta-events-list.php
+│           │   │   │   ├── cta-grid-products-link.php
+│           │   │   │   ├── cta-heading-search.php
+│           │   │   │   ├── cta-newsletter.php
+│           │   │   │   ├── event-3-col.php
+│           │   │   │   ├── event-rsvp.php
+│           │   │   │   ├── event-schedule.php
+│           │   │   │   ├── footer-centered.php
+│           │   │   │   ├── footer-columns.php
+│           │   │   │   ├── footer-newsletter.php
+│           │   │   │   ├── footer.php
+│           │   │   │   ├── footer-social.php
+│           │   │   │   ├── format-audio.php
+│           │   │   │   ├── format-link.php
+│           │   │   │   ├── grid-videos.php
+│           │   │   │   ├── grid-with-categories.php
+│           │   │   │   ├── header-centered.php
+│           │   │   │   ├── header-columns.php
+│           │   │   │   ├── header-large-title.php
+│           │   │   │   ├── header.php
+│           │   │   │   ├── heading-and-paragraph-with-image.php
+│           │   │   │   ├── hero-book.php
+│           │   │   │   ├── hero-full-width-image.php
+│           │   │   │   ├── hero-overlapped-book-cover-with-links.php
+│           │   │   │   ├── hero-podcast.php
+│           │   │   │   ├── hidden-404.php
+│           │   │   │   ├── hidden-blog-heading.php
+│           │   │   │   ├── hidden-search.php
+│           │   │   │   ├── hidden-sidebar.php
+│           │   │   │   ├── hidden-written-by.php
+│           │   │   │   ├── logos.php
+│           │   │   │   ├── media-instagram-grid.php
+│           │   │   │   ├── more-posts.php
+│           │   │   │   ├── overlapped-images.php
+│           │   │   │   ├── page-business-home.php
+│           │   │   │   ├── page-coming-soon.php
+│           │   │   │   ├── page-cv-bio.php
+│           │   │   │   ├── page-landing-book.php
+│           │   │   │   ├── page-landing-event.php
+│           │   │   │   ├── page-landing-podcast.php
+│           │   │   │   ├── page-link-in-bio-heading-paragraph-links-image.php
+│           │   │   │   ├── page-link-in-bio-wide-margins.php
+│           │   │   │   ├── page-link-in-bio-with-tight-margins.php
+│           │   │   │   ├── page-portfolio-home.php
+│           │   │   │   ├── page-shop-home.php
+│           │   │   │   ├── post-navigation.php
+│           │   │   │   ├── pricing-2-col.php
+│           │   │   │   ├── pricing-3-col.php
+│           │   │   │   ├── services-3-col.php
+│           │   │   │   ├── services-subscriber-only-section.php
+│           │   │   │   ├── services-team-photos.php
+│           │   │   │   ├── template-404-vertical-header-blog.php
+│           │   │   │   ├── template-archive-news-blog.php
+│           │   │   │   ├── template-archive-photo-blog.php
+│           │   │   │   ├── template-archive-text-blog.php
+│           │   │   │   ├── template-archive-vertical-header-blog.php
+│           │   │   │   ├── template-home-news-blog.php
+│           │   │   │   ├── template-home-photo-blog.php
+│           │   │   │   ├── template-home-posts-grid-news-blog.php
+│           │   │   │   ├── template-home-text-blog.php
+│           │   │   │   ├── template-home-vertical-header-blog.php
+│           │   │   │   ├── template-home-with-sidebar-news-blog.php
+│           │   │   │   ├── template-page-photo-blog.php
+│           │   │   │   ├── template-page-vertical-header-blog.php
+│           │   │   │   ├── template-query-loop-news-blog.php
+│           │   │   │   ├── template-query-loop-photo-blog.php
+│           │   │   │   ├── template-query-loop.php
+│           │   │   │   ├── template-query-loop-text-blog.php
+│           │   │   │   ├── template-query-loop-vertical-header-blog.php
+│           │   │   │   ├── template-search-news-blog.php
+│           │   │   │   ├── template-search-photo-blog.php
+│           │   │   │   ├── template-search-text-blog.php
+│           │   │   │   ├── template-search-vertical-header-blog.php
+│           │   │   │   ├── template-single-left-aligned-content.php
+│           │   │   │   ├── template-single-news-blog.php
+│           │   │   │   ├── template-single-offset.php
+│           │   │   │   ├── template-single-photo-blog.php
+│           │   │   │   ├── template-single-text-blog.php
+│           │   │   │   ├── template-single-vertical-header-blog.php
+│           │   │   │   ├── testimonials-2-col.php
+│           │   │   │   ├── testimonials-6-col.php
+│           │   │   │   ├── testimonials-large.php
+│           │   │   │   ├── text-faqs.php
+│           │   │   │   └── vertical-header.php
+│           │   │   ├── readme.txt
+│           │   │   ├── screenshot.png
+│           │   │   ├── style.css
+│           │   │   ├── style.min.css
+│           │   │   ├── styles
+│           │   │   │   ├── 01-evening.json
+│           │   │   │   ├── 02-noon.json
+│           │   │   │   ├── 03-dusk.json
+│           │   │   │   ├── 04-afternoon.json
+│           │   │   │   ├── 05-twilight.json
+│           │   │   │   ├── 06-morning.json
+│           │   │   │   ├── 07-sunrise.json
+│           │   │   │   ├── 08-midnight.json
+│           │   │   │   ├── blocks
+│           │   │   │   │   ├── 01-display.json
+│           │   │   │   │   ├── 02-subtitle.json
+│           │   │   │   │   ├── 03-annotation.json
+│           │   │   │   │   └── post-terms-1.json
+│           │   │   │   ├── colors
+│           │   │   │   │   ├── 01-evening.json
+│           │   │   │   │   ├── 02-noon.json
+│           │   │   │   │   ├── 03-dusk.json
+│           │   │   │   │   ├── 04-afternoon.json
+│           │   │   │   │   ├── 05-twilight.json
+│           │   │   │   │   ├── 06-morning.json
+│           │   │   │   │   ├── 07-sunrise.json
+│           │   │   │   │   └── 08-midnight.json
+│           │   │   │   ├── sections
+│           │   │   │   │   ├── section-1.json
+│           │   │   │   │   ├── section-2.json
+│           │   │   │   │   ├── section-3.json
+│           │   │   │   │   ├── section-4.json
+│           │   │   │   │   └── section-5.json
+│           │   │   │   └── typography
+│           │   │   │       ├── typography-preset-1.json
+│           │   │   │       ├── typography-preset-2.json
+│           │   │   │       ├── typography-preset-3.json
+│           │   │   │       ├── typography-preset-4.json
+│           │   │   │       ├── typography-preset-5.json
+│           │   │   │       ├── typography-preset-6.json
+│           │   │   │       └── typography-preset-7.json
+│           │   │   ├── templates
+│           │   │   │   ├── 404.html
+│           │   │   │   ├── archive.html
+│           │   │   │   ├── home.html
+│           │   │   │   ├── index.html
+│           │   │   │   ├── page.html
+│           │   │   │   ├── page-no-title.html
+│           │   │   │   ├── search.html
+│           │   │   │   └── single.html
+│           │   │   └── theme.json
+│           │   ├── twentytwentyfour
+│           │   │   ├── assets
+│           │   │   │   ├── css
+│           │   │   │   │   └── button-outline.css
+│           │   │   │   ├── fonts
+│           │   │   │   │   ├── cardo
+│           │   │   │   │   │   ├── cardo_italic_400.woff2
+│           │   │   │   │   │   ├── cardo_normal_400.woff2
+│           │   │   │   │   │   ├── cardo_normal_700.woff2
+│           │   │   │   │   │   └── LICENSE.txt
+│           │   │   │   │   ├── instrument-sans
+│           │   │   │   │   │   ├── InstrumentSans-Italic-VariableFont_wdth,wght.woff2
+│           │   │   │   │   │   ├── InstrumentSans-VariableFont_wdth,wght.woff2
+│           │   │   │   │   │   └── OFL.txt
+│           │   │   │   │   ├── inter
+│           │   │   │   │   │   ├── Inter-VariableFont_slnt,wght.woff2
+│           │   │   │   │   │   └── LICENSE.txt
+│           │   │   │   │   └── jost
+│           │   │   │   │       ├── Jost-Italic-VariableFont_wght.woff2
+│           │   │   │   │       ├── Jost-VariableFont_wght.woff2
+│           │   │   │   │       └── OFL.txt
+│           │   │   │   └── images
+│           │   │   │       ├── abstract-geometric-art.webp
+│           │   │   │       ├── angular-roof.webp
+│           │   │   │       ├── art-gallery.webp
+│           │   │   │       ├── building-exterior.webp
+│           │   │   │       ├── green-staircase.webp
+│           │   │   │       ├── hotel-facade.webp
+│           │   │   │       ├── icon-message.webp
+│           │   │   │       ├── museum.webp
+│           │   │   │       ├── tourist-and-building.webp
+│           │   │   │       └── windows.webp
+│           │   │   ├── functions.php
+│           │   │   ├── parts
+│           │   │   │   ├── footer.html
+│           │   │   │   ├── header.html
+│           │   │   │   ├── post-meta.html
+│           │   │   │   └── sidebar.html
+│           │   │   ├── patterns
+│           │   │   │   ├── banner-hero.php
+│           │   │   │   ├── banner-project-description.php
+│           │   │   │   ├── cta-content-image-on-right.php
+│           │   │   │   ├── cta-pricing.php
+│           │   │   │   ├── cta-rsvp.php
+│           │   │   │   ├── cta-services-image-left.php
+│           │   │   │   ├── cta-subscribe-centered.php
+│           │   │   │   ├── footer-centered-logo-nav.php
+│           │   │   │   ├── footer-colophon-3-col.php
+│           │   │   │   ├── footer.php
+│           │   │   │   ├── gallery-full-screen-image.php
+│           │   │   │   ├── gallery-offset-images-grid-2-col.php
+│           │   │   │   ├── gallery-offset-images-grid-3-col.php
+│           │   │   │   ├── gallery-offset-images-grid-4-col.php
+│           │   │   │   ├── gallery-project-layout.php
+│           │   │   │   ├── hidden-404.php
+│           │   │   │   ├── hidden-comments.php
+│           │   │   │   ├── hidden-no-results.php
+│           │   │   │   ├── hidden-portfolio-hero.php
+│           │   │   │   ├── hidden-post-meta.php
+│           │   │   │   ├── hidden-post-navigation.php
+│           │   │   │   ├── hidden-posts-heading.php
+│           │   │   │   ├── hidden-search.php
+│           │   │   │   ├── hidden-sidebar.php
+│           │   │   │   ├── page-about-business.php
+│           │   │   │   ├── page-home-blogging.php
+│           │   │   │   ├── page-home-business.php
+│           │   │   │   ├── page-home-portfolio-gallery.php
+│           │   │   │   ├── page-home-portfolio.php
+│           │   │   │   ├── page-newsletter-landing.php
+│           │   │   │   ├── page-portfolio-overview.php
+│           │   │   │   ├── page-rsvp-landing.php
+│           │   │   │   ├── posts-1-col.php
+│           │   │   │   ├── posts-3-col.php
+│           │   │   │   ├── posts-grid-2-col.php
+│           │   │   │   ├── posts-images-only-3-col.php
+│           │   │   │   ├── posts-images-only-offset-4-col.php
+│           │   │   │   ├── posts-list.php
+│           │   │   │   ├── team-4-col.php
+│           │   │   │   ├── template-archive-blogging.php
+│           │   │   │   ├── template-archive-portfolio.php
+│           │   │   │   ├── template-home-blogging.php
+│           │   │   │   ├── template-home-business.php
+│           │   │   │   ├── template-home-portfolio.php
+│           │   │   │   ├── template-index-blogging.php
+│           │   │   │   ├── template-index-portfolio.php
+│           │   │   │   ├── template-search-blogging.php
+│           │   │   │   ├── template-search-portfolio.php
+│           │   │   │   ├── template-single-portfolio.php
+│           │   │   │   ├── testimonial-centered.php
+│           │   │   │   ├── text-alternating-images.php
+│           │   │   │   ├── text-centered-statement.php
+│           │   │   │   ├── text-centered-statement-small.php
+│           │   │   │   ├── text-faq.php
+│           │   │   │   ├── text-feature-grid-3-col.php
+│           │   │   │   ├── text-project-details.php
+│           │   │   │   └── text-title-left-image-right.php
+│           │   │   ├── readme.txt
+│           │   │   ├── screenshot.png
+│           │   │   ├── style.css
+│           │   │   ├── styles
+│           │   │   │   ├── ember.json
+│           │   │   │   ├── fossil.json
+│           │   │   │   ├── ice.json
+│           │   │   │   ├── maelstrom.json
+│           │   │   │   ├── mint.json
+│           │   │   │   ├── onyx.json
+│           │   │   │   └── rust.json
+│           │   │   ├── templates
+│           │   │   │   ├── 404.html
+│           │   │   │   ├── archive.html
+│           │   │   │   ├── home.html
+│           │   │   │   ├── index.html
+│           │   │   │   ├── page.html
+│           │   │   │   ├── page-no-title.html
+│           │   │   │   ├── page-wide.html
+│           │   │   │   ├── page-with-sidebar.html
+│           │   │   │   ├── search.html
+│           │   │   │   ├── single.html
+│           │   │   │   └── single-with-sidebar.html
+│           │   │   └── theme.json
+│           │   └── twentytwentythree
+│           │       ├── assets
+│           │       │   └── fonts
+│           │       │       ├── dm-sans
+│           │       │       │   ├── DMSans-Bold-Italic.woff2
+│           │       │       │   ├── DMSans-Bold.woff2
+│           │       │       │   ├── DMSans-Regular-Italic.woff2
+│           │       │       │   ├── DMSans-Regular.woff2
+│           │       │       │   └── LICENSE.txt
+│           │       │       ├── ibm-plex-mono
+│           │       │       │   ├── IBMPlexMono-Bold.woff2
+│           │       │       │   ├── IBMPlexMono-Italic.woff2
+│           │       │       │   ├── IBMPlexMono-Light.woff2
+│           │       │       │   ├── IBMPlexMono-Regular.woff2
+│           │       │       │   └── OFL.txt
+│           │       │       ├── inter
+│           │       │       │   ├── Inter-VariableFont_slnt,wght.ttf
+│           │       │       │   └── LICENSE.txt
+│           │       │       └── source-serif-pro
+│           │       │           ├── LICENSE.md
+│           │       │           ├── SourceSerif4Variable-Italic.otf.woff2
+│           │       │           ├── SourceSerif4Variable-Italic.ttf.woff2
+│           │       │           ├── SourceSerif4Variable-Roman.otf.woff2
+│           │       │           └── SourceSerif4Variable-Roman.ttf.woff2
+│           │       ├── parts
+│           │       │   ├── comments.html
+│           │       │   ├── footer.html
+│           │       │   ├── header.html
+│           │       │   └── post-meta.html
+│           │       ├── patterns
+│           │       │   ├── call-to-action.php
+│           │       │   ├── footer-default.php
+│           │       │   ├── hidden-404.php
+│           │       │   ├── hidden-comments.php
+│           │       │   ├── hidden-heading.php
+│           │       │   ├── hidden-no-results.php
+│           │       │   └── post-meta.php
+│           │       ├── readme.txt
+│           │       ├── screenshot.png
+│           │       ├── style.css
+│           │       ├── styles
+│           │       │   ├── aubergine.json
+│           │       │   ├── block-out.json
+│           │       │   ├── canary.json
+│           │       │   ├── electric.json
+│           │       │   ├── grapes.json
+│           │       │   ├── marigold.json
+│           │       │   ├── pilgrimage.json
+│           │       │   ├── pitch.json
+│           │       │   ├── sherbet.json
+│           │       │   └── whisper.json
+│           │       ├── templates
+│           │       │   ├── 404.html
+│           │       │   ├── archive.html
+│           │       │   ├── blank.html
+│           │       │   ├── blog-alternative.html
+│           │       │   ├── home.html
+│           │       │   ├── index.html
+│           │       │   ├── page.html
+│           │       │   ├── search.html
+│           │       │   └── single.html
+│           │       └── theme.json
+│           ├── uploads
+│           │   └── 2026
+│           │       └── 02
+│           │           ├── Coffee-Shop-1024x1024.png
+│           │           ├── Coffee-Shop-150x150.png
+│           │           ├── Coffee-Shop-300x300.png
+│           │           ├── Coffee-Shop-768x767.png
+│           │           ├── Coffee-Shop.png
+│           │           ├── Cookies-1024x676.png
+│           │           ├── Cookies-1-1024x676.png
+│           │           ├── Cookies-1-150x150.png
+│           │           ├── Cookies-1-300x198.png
+│           │           ├── Cookies-150x150.png
+│           │           ├── Cookies-1-768x507.png
+│           │           ├── Cookies-1.png
+│           │           ├── Cookies-300x198.png
+│           │           ├── Cookies-768x507.png
+│           │           └── Cookies.png
+│           └── wp-config.php
+├── certs
+│   ├── nebula.crt
+│   └── nebula.key
+├── config
+│   ├── docker
+│   │   └── daemon.json.example
+│   ├── fail2ban
+│   │   ├── fail2ban-nginx-jail.conf
+│   │   └── jail.local
+│   ├── netdata
+│   │   ├── cpu_alert.conf
+│   │   └── health.d
+│   ├── nginx
+│   │   └── nginx.conf
+│   └── ssh
+│       └── sshd_config
+├── data
+│   ├── letsencrypt
+│   │   ├── accounts  [error opening dir]
+│   │   └── renewal-hooks
+│   │       ├── deploy
+│   │       ├── post
+│   │       └── pre
+│   └── npm
+│       ├── access
+│       ├── custom_ssl
+│       │   ├── npm-2
+│       │   │   ├── fullchain.pem
+│       │   │   └── privkey.pem
+│       │   └── npm-4
+│       │       ├── fullchain.pem
+│       │       └── privkey.pem
+│       ├── database.sqlite
+│       ├── keys.json
+│       ├── letsencrypt-acme-challenge
+│       ├── logs
+│       │   ├── fallback_error.log
+│       │   ├── fallback_http_access.log
+│       │   ├── fallback_http_error.log
+│       │   ├── fallback_stream_access.log
+│       │   ├── letsencrypt.log
+│       │   ├── letsencrypt.log.1
+│       │   ├── letsencrypt.log.2
+│       │   ├── letsencrypt-requests_access.log
+│       │   ├── letsencrypt-requests_error.log
+│       │   ├── proxy-host-1_access.log
+│       │   ├── proxy-host-1_error.log
+│       │   ├── proxy-host-2_access.log
+│       │   ├── proxy-host-2_error.log
+│       │   ├── proxy-host-3_access.log
+│       │   ├── proxy-host-3_error.log
+│       │   ├── proxy-host-4_access.log
+│       │   ├── proxy-host-4_error.log
+│       │   ├── proxy-host-5_access.log
+│       │   ├── proxy-host-5_error.log
+│       │   ├── proxy-host-6_access.log
+│       │   ├── proxy-host-6_error.log
+│       │   ├── proxy-host-7_access.log
+│       │   └── proxy-host-7_error.log
+│       ├── nebula.crt
+│       ├── nebula.key
+│       ├── nginx
+│       │   ├── dead_host
+│       │   ├── default_host
+│       │   ├── default_www
+│       │   ├── proxy_host
+│       │   │   ├── 1.conf
+│       │   │   ├── 2.conf
+│       │   │   ├── 5.conf
+│       │   │   └── 6.conf
+│       │   ├── redirection_host
+│       │   ├── stream
+│       │   └── temp
+│       └── ssl
+│           ├── nebula.crt
+│           └── nebula.key
+├── docker-compose.prod.yml
+├── docker-compose.yml
+├── docs
+│   ├── cron-examples.md
+│   ├── diagrams
+│   ├── hosts_example.txt
+│   ├── screenshots
+│   │   ├── comunicacion_interna.txt
+│   │   ├── estado_contenedores.txt
+│   │   ├── estructura_proyecto.txt
+│   │   ├── red_contenedores.txt
+│   │   └── wordpress_instalacion.log
+│   ├── technical
+│   │   ├── network-inspection.md
+│   │   ├── project-structure.txt
+│   │   └── ssl-certificate-details.md
+│   └── visual
+│       ├──  diagrama_grantt_completo.png
+│       ├── Diagrama Arquitectura_del_Sistema.puml
+│       ├── Diagrama_de_Casos_de_Uso.puml
+│       └── Diagrama_de_Flujo_de_Actividad.puml
+├── examples
+│   ├── fastapi-example
+│   ├── portfolio-template
+│   └── wordpress-deploy
+├── infrastructure
+│   └── docker
+│       ├── apps
+│       └── monitoring
+├── LICENSE
+├── logs
+│   ├── netdata
+│   │   ├── access.log
+│   │   ├── aclk.log
+│   │   ├── collector.log
+│   │   ├── daemon.log
+│   │   ├── debug.log
+│   │   ├── health.log
+│   │   └── otel  [error opening dir]
+│   ├── npm
+│   │   └── error.log
+│   └── static
+│       ├── access.log
+│       └── error.log
+├── Makefile
+├── README.md
+├── scripts
+│   ├── backup-nebula.sh
+│   ├── installation-docker-nebula.sh
+│   ├── server-stats.sh
+│   ├── setup-fail2ban-nebula.sh
+│   ├── setup-firewall-nebula.sh
+│   ├── setup-nebula-discarded.sh
+│   └── setup-nebula.sh
+├── Taskfile.yaml
+└── tests
+    ├── integration
+    ├── load
+    └── security
+
+126 directories, 559 files

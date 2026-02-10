@@ -9,6 +9,7 @@
 
 # Logs y datos de contenedores
 *.log
+logs/
 data/
 **/node_modules/
 

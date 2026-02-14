@@ -12,7 +12,7 @@ Nebula integrates a reverse proxy with automatic SSL, real‑time monitoring, an
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - **Ubuntu 24.04 LTS** (fresh installation recommended)
@@ -33,7 +33,7 @@ chmod +x scripts/*
 # 3. Install Docker and Docker Compose
 ./scripts/01-install-docker.sh
 
-# ⚠️ IMPORTANT: Log out and log back in (or reboot) for Docker group changes.
+#IMPORTANT: Log out and log back in (or reboot) for Docker group changes.
 #    After logging in again, verify with: docker ps
 
 # 4. Check that ports 80 and 443 are free (optional but recommended)
@@ -65,7 +65,7 @@ Access the services using your **server's IP address** (from a browser on the sa
 
 ---
 
-## 📦 Deploy Example Applications
+## Deploy Example Applications
 
 ### Static Web (already running internally)
 - Container: `nebula-static`
@@ -92,7 +92,7 @@ docker compose up -d
 
 ---
 
-## 🔐 SSL for Custom Domains (Example)
+## SSL for Custom Domains (Example)
 
 To test SSL with a local domain like `app.nebula.test`:
 
@@ -127,7 +127,7 @@ To test SSL with a local domain like `app.nebula.test`:
 
 ---
 
-## 🛠️ Task Automation
+##Task Automation
 
 If you have [Task](https://taskfile.dev) installed, you can use the included `Taskfile.yaml`:
 
@@ -158,7 +158,7 @@ task clean
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 nebula-selfhosted-paas/
@@ -191,7 +191,7 @@ nebula-selfhosted-paas/
 
 ---
 
-## 🌐 Service Endpoints
+## Service Endpoints
 
 | Service          | Internal (Docker network) | Published host port |
 |------------------|---------------------------|---------------------|
@@ -208,7 +208,7 @@ SSH is available on port **2222** with rate limiting.
 
 ---
 
-## 🔒 Security Features
+## Security Features
 
 - **SSH** moved to port **2222** with **rate limiting** (UFW limit)
 - **UFW** default deny, only essential ports open
@@ -218,7 +218,7 @@ SSH is available on port **2222** with rate limiting.
 
 ---
 
-## 📊 Monitoring with Netdata
+## Monitoring with Netdata
 
 Access the real‑time dashboard:
 
@@ -236,7 +236,7 @@ Then follow the claim instructions in the [Netdata Cloud UI](https://app.netdata
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### 1. Firefox cannot connect to `http://localhost:81`
 **Cause:** Firefox snap sandboxing or IPv6.  
@@ -276,18 +276,16 @@ sudo journalctl --vacuum-size=200M
 
 ---
 
-## 📝 License & Author
+## License & Author
 
 **MIT License** – see [LICENSE](LICENSE).  
 
 **Author:** Mohamed Kamil El Kouarti Mechhidan  
 *Student, 2º SMR PROMETEO by thePower*  
 Project Tutor: Raúl  
-📧 [GitHub Profile](https://github.com/MohamedKamil-hub)
+ [GitHub Profile](https://github.com/MohamedKamil-hub)
 
 ---
-
-## 🙏 Acknowledgments
 
 - **Netdata** for lightweight, real-time monitoring
 - **Docker** for containerization simplicity
@@ -298,8 +296,7 @@ Project Tutor: Raúl
 ---
 
 <div align="center">
-⭐ **If Nebula helps you, please star the repository!**  
-Made with ❤️ for the self‑hosting community.
+ **If Nebula helps you, please star the repository!**  
 </div>
 
 
